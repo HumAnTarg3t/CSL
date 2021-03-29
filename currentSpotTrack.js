@@ -25,16 +25,24 @@ async function getCurrentTrack(token) {
           result: result,
           Current_progress: data.progress_ms,
           Total_duration: data.item.duration_ms,
+          status: 200
         };
         return data1;
       } catch (err) {
-        console.log(err);
+        console.log('Genius fant den ikke');
+        return {
+          track: song,
+          artist: artist,
+          status: 404
+        }
       }
-    } else {
-      console.log("Nothing playing now");
+    } else if(response.status === 401) {
+      return {
+        status: 401,
+        statusText: 'Unauthorized'}
     }
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 }
 //getCurrentTrack(token);
