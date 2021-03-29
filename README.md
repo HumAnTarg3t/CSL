@@ -54,14 +54,19 @@ Press `Login` and `Update` once, after that it will update itself.
 
  
 ## Features
-List of features ready and TODOs for future development:
-The basic is working:
-You can login with your spotify (lasts 1 hour) and get lyrics if the song is found.
+* Deployed:
+     * [x] Login to spotify
+     * [X] Auto updates when song finishes naturally 
+     * [X] Manual update button
+     * [X] Autoscroll
+* In development:
+     * [ ] Adjust autoscroll speed
   
 
  
 ## Issues
-Later
+The app only uses [genius-lyrics-fetcher](https://github.com/zenje/genius-lyrics-fetcher) for lyrics, so not all lyrics will be found.
+ 
  
 ## Status
 Project is: _ongoing_
