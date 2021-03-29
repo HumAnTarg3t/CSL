@@ -51,10 +51,12 @@ async function getLyr() {
         document.getElementById("pArtist").innerHTML = `Artist: ${artist}`;
         document.getElementById("song").innerHTML = `Track: ${track}`;
         document.getElementById("pLyric").innerText = `Lyric: ${lyric}`;
+        window.scrollTo(0,0)
         myPromise.then(async () => {
           total_Dur = 0;
           current_Pos = 0;
           await getLyr();
+          
         });
       } else {
         document.getElementById("pArtist").innerHTML = `Artist: ${artist}`;
@@ -62,6 +64,7 @@ async function getLyr() {
         document.getElementById("pLyric").innerText = `Lyric: Please wait...`;
         console.error("Trying again...");
         await getLyr();
+        window.scrollTo(0,0)
       }
     }
   } catch (err) {
@@ -75,6 +78,7 @@ updateButton.addEventListener("click", async () => {
   current_Pos;
   console.log("Pressed update");
   await getLyr();
+  window.scrollTo(0,0)
   //startScroll()
 });
 
