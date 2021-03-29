@@ -14,6 +14,28 @@ async function getLyr() {
     });
     if (response.ok) {
       const data = await response.json();
+      if (data.status == 404) {
+        document.getElementById("song").innerHTML = `${data.track}`;
+        document.getElementById("pArtist").innerText = `${data.artist}`;
+        document.getElementById("pLyric").innerHTML = `Lyrics not found :(
+        Will check again in 10 seconds... Or change song and click "Update"`;
+        const promise123 = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, 10000);
+        });
+        promise123.then(async () => {
+          await getLyr();
+        });
+      }
+      if (data.status == 401) {
+        document.getElementById(
+          "pArtist"
+        ).innerHTML = `${data.statusText}, ${data.status}.`;
+        document.getElementById("song").innerHTML = `You need to login again.`;
+        document.getElementById("pLyric").innerText = ``;
+      }
+
       const artist = data.result.artistName;
       const track = data.result.trackTitle;
       const lyric = data.result.lyrics || "Trying again";
@@ -43,20 +65,7 @@ async function getLyr() {
       }
     }
   } catch (err) {
-    document.getElementById("pLyric").innerHTML = ''
-    document.getElementById("song").innerHTML = ''
-    document.getElementById("pArtist").innerText = 
-    `Song not found :(
-    Will check again in 10 seconds... Or change song and click "Update"`;
     console.error(err);
-    const promise123 = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve();
-      }, 10000);
-    });
-    promise123.then(async () => {
-      await getLyr();
-    });
   }
 }
 
@@ -69,7 +78,7 @@ updateButton.addEventListener("click", async () => {
   //startScroll()
 });
 
-/*Credit to https://www.youtube.com/watch?v=Tvem7GnMS5I */ 
+/*Credit to https://www.youtube.com/watch?v=Tvem7GnMS5I , modified by me */
 let scrollerID;
 let paused = true;
 let speed = 3; // 1 - Fast | 2 - Medium | 3 - Slow
@@ -77,10 +86,10 @@ let interval = speed * 50;
 function startScroll() {
   let id = setInterval(function () {
     window.scrollBy(0, 1);
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      // Reached end of page
-      stopScroll();
-    }
+    // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    //   // Reached end of page
+    //   //stopScroll();
+    // }
   }, interval);
   return id;
 }
@@ -88,19 +97,43 @@ function startScroll() {
 function stopScroll() {
   clearInterval(scrollerID);
 }
-const scrollButton = document.getElementById('scroll')
+const scrollButton = document.getElementById("scroll");
 scrollButton.addEventListener(
   "click",
   function (event) {
-    // It's the 'Enter' key
     if (paused == true) {
       scrollerID = startScroll();
       paused = false;
+      document.getElementById("scroll1").style.filter = "brightness(60%)";
     } else {
+      document.getElementById("scroll1").style.filter = "";
       stopScroll();
       paused = true;
     }
   },
   true
 );
-/*Credit ends*/ 
+/*Credit ends*/
+
+let howToActive = false;
+let howTo = document.getElementById("how-to");
+howTo.addEventListener("click", () => {
+  if (!howToActive) {
+    howTo.innerText = `1.Login
+    2.Press update once
+    3.Enjoy`;
+    howTo.style.textAlign = "left";
+    howTo.style.marginRight = "0px";
+    howTo.style.marginLeft = "0px";
+    howTo.style.paddingLeft = "10px";
+    howTo.style.paddingRight = "10px";
+    howToActive = true;
+  } else {
+    howTo.innerHTML = "How to";
+    howTo.style.marginRight = "6px";
+    howTo.style.marginLeft = "6px";
+    howTo.style.paddingLeft = "31px";
+    howTo.style.paddingRight = "31px";
+    howToActive = false;
+  }
+});
