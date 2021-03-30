@@ -29,7 +29,7 @@ async function getCurrentTrack(token) {
         };
         return data1;
       } catch (err) {
-        console.log('Genius fant den ikke');
+        console.log('Genius fant den ikke, eller genius er nede');
         return {
           track: song,
           artist: artist,
