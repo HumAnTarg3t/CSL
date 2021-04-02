@@ -1,8 +1,11 @@
+
 const loginButton = document.getElementById("button");
 loginButton.addEventListener("click", () => {
   window.open(`http://localhost:8080/1`);
   window.close();
 });
+
+document.getElementById("slidecontainer").style.visibility = "hidden";
 
 let total_Dur;
 let current_Pos;
@@ -51,12 +54,11 @@ async function getLyr() {
         document.getElementById("pArtist").innerHTML = `Artist: ${artist}`;
         document.getElementById("song").innerHTML = `Track: ${track}`;
         document.getElementById("pLyric").innerText = `Lyric: ${lyric}`;
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0);
         myPromise.then(async () => {
           total_Dur = 0;
           current_Pos = 0;
           await getLyr();
-          
         });
       } else {
         document.getElementById("pArtist").innerHTML = `Artist: ${artist}`;
@@ -64,7 +66,7 @@ async function getLyr() {
         document.getElementById("pLyric").innerText = `Lyric: Please wait...`;
         console.error("Trying again...");
         await getLyr();
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0);
       }
     }
   } catch (err) {
@@ -78,46 +80,11 @@ updateButton.addEventListener("click", async () => {
   current_Pos;
   console.log("Pressed update");
   await getLyr();
-  window.scrollTo(0,0)
+  //window.scrollTo(0, 0);
   //startScroll()
 });
 
-/*Credit to https://www.youtube.com/watch?v=Tvem7GnMS5I , modified by me */
-let scrollerID;
-let paused = true;
-let speed = 3; // 1 - Fast | 2 - Medium | 3 - Slow
-let interval = speed * 50;
-function startScroll() {
-  let id = setInterval(function () {
-    window.scrollBy(0, 1);
-    // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    //   // Reached end of page
-    //   //stopScroll();
-    // }
-  }, interval);
-  return id;
-}
 
-function stopScroll() {
-  clearInterval(scrollerID);
-}
-const scrollButton = document.getElementById("scroll");
-scrollButton.addEventListener(
-  "click",
-  function (event) {
-    if (paused == true) {
-      scrollerID = startScroll();
-      paused = false;
-      document.getElementById("scroll1").style.filter = "brightness(60%)";
-    } else {
-      document.getElementById("scroll1").style.filter = "";
-      stopScroll();
-      paused = true;
-    }
-  },
-  true
-);
-/*Credit ends*/
 
 let howToActive = false;
 let howTo = document.getElementById("how-to");
@@ -141,3 +108,60 @@ howTo.addEventListener("click", () => {
     howToActive = false;
   }
 });
+
+
+/*Credit to https://www.youtube.com/watch?v=Tvem7GnMS5I , modified by @HumAnTarg3t */
+let scrollerID;
+let paused = true;
+let speed = 3; // 1 - Fast | 2 - Medium | 3 - Slow
+let interval = speed * 50;
+const slider = document.getElementById("myRange");
+const output = document.getElementById("demo");
+output.innerHTML = ''
+
+slider.oninput = function () {
+  output.innerHTML = (100 - this.value) +1;
+  let intspeed = speed * slider.value;
+  interval = intspeed
+};
+slider.onmousedown = ()=>{
+  stopScroll()
+  paused = true
+}
+slider.onmouseup = ()=>{
+  scrollerID = startScroll();
+      paused = false;
+}
+function startScroll() {
+  let id = setInterval(function () {
+    window.scrollBy(0, 1);
+    // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    //   // Reached end of page
+    //   //stopScroll();
+    // }
+  }, interval);
+  return id;
+}
+
+function stopScroll() {
+  clearInterval(scrollerID);
+}
+const scrollButton = document.getElementById("scroll");
+scrollButton.addEventListener(
+  "click",
+  function (event) {
+    if (paused == true) {
+      scrollerID = startScroll();
+      paused = false;
+      document.getElementById("scroll1").style.filter = "brightness(60%)";
+      document.getElementById("slidecontainer").style.visibility = "";
+    } else {
+      document.getElementById("scroll1").style.filter = "";
+      document.getElementById("slidecontainer").style.visibility = "hidden";
+      stopScroll();
+      paused = true;
+    }
+  },
+  true
+);
+/*Credit ends*/
