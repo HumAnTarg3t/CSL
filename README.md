@@ -1,6 +1,7 @@
 # Currnet-spotify-song
  Checks your current playing spotify song and tries to get the lyrics for the song.
  
+  Live: [https://current-spotify-song.glitch.me/](https://current-spotify-song.glitch.me/)
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
@@ -17,6 +18,7 @@ The app uses [Spotify Api](https://developer.spotify.com/dashboard/) and [Genius
  
 **The authorization lasts 1 hour.** After it ends you need to `Login` again to get a new token for Spotify.
  
+
 ## Technologies
 * JavaScript 
      * Node.js
@@ -59,8 +61,10 @@ Press `Login` and `Update` once, after that it will update itself.
      * [X] Auto updates when song finishes naturally 
      * [X] Manual update button
      * [X] Autoscroll
+     * [x] Adjust autoscroll speed
 * In development:
-     * [ ] Adjust autoscroll speed
+     * [ ] Logout button
+     * [ ] Autologin and continue
   
 
  
