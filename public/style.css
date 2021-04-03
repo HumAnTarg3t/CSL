@@ -152,7 +152,7 @@ header {
   background: #4caf50;
   cursor: pointer;
 }
-.loginInfo{
+.loginInfo {
   top: 0%;
   position: fixed;
   right: 0%;
@@ -163,11 +163,10 @@ header {
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
   margin-top: 9px;
-  cursor:default;
+  cursor: default;
 }
 
-
-.footer{
+.footer {
   text-align: left;
   bottom: 0%;
   position: fixed;
@@ -178,31 +177,20 @@ header {
   font-family: Arial;
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
-  /* background-color: #44c767; */
-  /* border-radius: 28px;
-  border: 1px solid #18ab29; */
+
   margin-bottom: 16px;
   margin-left: 12px;
   font-size: 18px;
- 
 }
-a{
+a {
   text-decoration: none;
   color: #ffffff;
   font-family: Arial;
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
-  /* background-color: #44c767;*/
-} 
-a:hover{
-  text-decoration:underline;
+}
+a:hover {
+  text-decoration: underline;
   opacity: 1;
   text-shadow: 0px 1px 0px #2f6627;
-  /* background-color: #44c767; */
 }
-
-/* .footer:hover {
-  background-color: #5cbf2a;
-  text-shadow: 0px 1px 0px #2f6627;
-  background-color: #44c767;
-} */
