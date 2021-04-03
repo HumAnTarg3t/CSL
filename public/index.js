@@ -3,7 +3,10 @@ loginButton.addEventListener("click", () => {
   window.open(`http://localhost:8080/1`);
   window.close();
 });
-
+const logoutButton = document.getElementById("logoutButton");
+logoutButton.addEventListener("click", () => {
+  window.open("http://localhost:8080/logout");
+});
 document.getElementById("slidecontainer").style.visibility = "hidden";
 
 let total_Dur;
