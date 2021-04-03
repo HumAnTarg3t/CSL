@@ -45,6 +45,7 @@ header {
 }
 .scroll {
   position: fixed;
+  top: 25px;
   right: 0%;
   margin: 6px;
   background-color: #44c767;
@@ -107,6 +108,7 @@ header {
 .slidecontainer {
   position: fixed;
   right: 0%;
+  top: 25px;
   margin: 6px;
   text-shadow: 0px 1px 0px #2f6627;
   color: #dddddd;
@@ -149,4 +151,17 @@ header {
   border-radius: 50%;
   background: #4caf50;
   cursor: pointer;
+}
+.loginInfo{
+  top: 0%;
+  position: fixed;
+  right: 0%;
+  margin-right: 6px;
+  padding-right: 31px;
+  color: #ffffff;
+  font-family: Arial;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+  margin-top: 9px;
+  cursor:default;
 }

@@ -1,3 +1,4 @@
+const loginInfo = document.getElementById('loginText')
 const loginButton = document.getElementById("button");
 loginButton.addEventListener("click", () => {
   window.open(`http://localhost:8080/1`);
@@ -20,6 +21,7 @@ async function getLyr() {
     if (response.ok) {
       const data = await response.json();
       if (data.status == 404) {
+        loginInfo.innerText = 'Logged in'
         document.getElementById("song").innerHTML = `${data.track}`;
         document.getElementById("pArtist").innerText = `${data.artist}`;
         document.getElementById("pLyric").innerHTML = `Lyrics not found :(
@@ -34,6 +36,7 @@ async function getLyr() {
         });
       }
       if (data.status == 401) {
+        loginInfo.innerText = 'Logged out'
         document.getElementById(
           "pArtist"
         ).innerHTML = `${data.statusText}, ${data.status}.`;
@@ -53,6 +56,7 @@ async function getLyr() {
         }, timeLeft + 100);
       });
       if (data.result.lyrics) {
+        loginInfo.innerText = 'Logged in'
         document.getElementById("pArtist").innerHTML = `Artist: ${artist}`;
         document.getElementById("song").innerHTML = `Track: ${track}`;
         document.getElementById("pLyric").innerText = `Lyric: ${lyric}`;
@@ -63,6 +67,7 @@ async function getLyr() {
           await getLyr();
         });
       } else {
+        loginInfo.innerText = 'Logged in'
         document.getElementById("pArtist").innerHTML = `Artist: ${artist}`;
         document.getElementById("song").innerHTML = `Track: ${track}`;
         document.getElementById("pLyric").innerText = `Lyric: Please wait...`;
@@ -112,7 +117,7 @@ howTo.addEventListener("click", () => {
 /*Credit to https://www.youtube.com/watch?v=Tvem7GnMS5I , modified by @HumAnTarg3t */
 let scrollerID;
 let paused = true;
-let speed = 3; // 1 - Fast | 2 - Medium | 3 - Slow
+let speed = 4; // 1 - Fast | 2 - Medium | 3 - Slow
 let interval = speed * 50;
 const slider = document.getElementById("myRange");
 const output = document.getElementById("demo");
