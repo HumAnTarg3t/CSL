@@ -2,7 +2,6 @@ require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const app = express();
-const { static } = require("express");
 const morgan = require("morgan");
 
 const fetch = require("node-fetch");
@@ -43,15 +42,18 @@ app.get("/login*", async (req, res) => {
 
 app.get("/home", async (req, res) => {
   const { cookies } = req;
-  res.json(await getCurrentTrack(cookies.fcd34702420c74e3a8eef12f64bc7a8f47ec0baa913token));
+  res.json(
+    await getCurrentTrack(
+      cookies.fcd34702420c74e3a8eef12f64bc7a8f47ec0baa913token
+    )
+  );
 });
 
 app.get("/logout", (req, res) => {
   res.cookie("fcd34702420c74e3a8eef12f64bc7a8f47ec0baa913token", "deleted", {
     maxAge: 0,
   });
-  //res.send('logout')
-  res.redirect('http://localhost:8080')
+  res.redirect("http://localhost:8080");
 });
 
 const PORT = process.env.PORT || 8080;

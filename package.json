@@ -1,6 +1,6 @@
 {
   "name": "Current-spotify-lyrics",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Get your current playing song and find lyrics",
   "main": "app.js",
   "dependencies": {
@@ -15,7 +15,11 @@
   "scripts": {
     "start": "node app"
   },
-  "keywords": ["Spotify","Genius", "lyrics"],
+  "keywords": [
+    "Spotify",
+    "Genius",
+    "lyrics"
+  ],
   "author": "HumAnTarg3t",
   "license": "MIT"
 }

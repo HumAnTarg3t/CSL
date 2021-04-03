@@ -1,4 +1,4 @@
-const loginInfo = document.getElementById('loginText')
+const loginInfo = document.getElementById("loginText");
 const loginButton = document.getElementById("button");
 loginButton.addEventListener("click", () => {
   location.replace(`http://localhost:8080/1`);
@@ -20,7 +20,7 @@ async function getLyr() {
     if (response.ok) {
       const data = await response.json();
       if (data.status == 404) {
-        loginInfo.innerText = 'Logged in'
+        loginInfo.innerText = "Logged in";
         document.getElementById("song").innerHTML = `${data.track}`;
         document.getElementById("pArtist").innerText = `${data.artist}`;
         document.getElementById("pLyric").innerHTML = `Lyrics not found :(
@@ -35,7 +35,7 @@ async function getLyr() {
         });
       }
       if (data.status == 401) {
-        loginInfo.innerText = 'Logged out'
+        loginInfo.innerText = "Logged out";
         document.getElementById(
           "pArtist"
         ).innerHTML = `${data.statusText}, ${data.status}.`;
@@ -55,7 +55,7 @@ async function getLyr() {
         }, timeLeft + 100);
       });
       if (data.result.lyrics) {
-        loginInfo.innerText = 'Logged in'
+        loginInfo.innerText = "Logged in";
         document.getElementById("pArtist").innerHTML = `Artist: ${artist}`;
         document.getElementById("song").innerHTML = `Track: ${track}`;
         document.getElementById("pLyric").innerText = `Lyric: ${lyric}`;
@@ -66,7 +66,7 @@ async function getLyr() {
           await getLyr();
         });
       } else {
-        loginInfo.innerText = 'Logged in'
+        loginInfo.innerText = "Logged in";
         document.getElementById("pArtist").innerHTML = `Artist: ${artist}`;
         document.getElementById("song").innerHTML = `Track: ${track}`;
         document.getElementById("pLyric").innerText = `Lyric: Please wait...`;
