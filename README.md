@@ -62,8 +62,8 @@ Press `Login` and `Update` once, after that it will update itself.
      * [X] Manual update button
      * [X] Autoscroll
      * [x] Adjust autoscroll speed
+     * [X] Logout button
 * In development:
-     * [ ] Logout button
      * [ ] Autologin and continue
   
 
