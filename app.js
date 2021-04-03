@@ -47,10 +47,11 @@ app.get("/home", async (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  res.cookie("token", "deleted", {
+  res.cookie("fcd34702420c74e3a8eef12f64bc7a8f47ec0baa913token", "deleted", {
     maxAge: 0,
   });
-  res.send("logout");
+  //res.send('logout')
+  res.redirect('http://localhost:8080')
 });
 
 const PORT = process.env.PORT || 8080;
