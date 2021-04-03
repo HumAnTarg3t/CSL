@@ -31,7 +31,7 @@ app.get("/login*", async (req, res) => {
 
     const data = await response.json();
     token = data.access_token;
-    res.cookie("token", token, {
+    res.cookie("fcd34702420c74e3a8eef12f64bc7a8f47ec0baa913token", token, {
       maxAge: 3600000,
       httpOnly: true,
     });
@@ -43,7 +43,14 @@ app.get("/login*", async (req, res) => {
 
 app.get("/home", async (req, res) => {
   const { cookies } = req;
-  res.json(await getCurrentTrack(cookies.token));
+  res.json(await getCurrentTrack(cookies.fcd34702420c74e3a8eef12f64bc7a8f47ec0baa913token));
+});
+
+app.get("/logout", (req, res) => {
+  res.cookie("token", "deleted", {
+    maxAge: 0,
+  });
+  res.send("logout");
 });
 
 const PORT = process.env.PORT || 8080;
