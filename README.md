@@ -65,6 +65,7 @@ Press `Login` and `Update` once, after that it will update itself.
      * [X] Logout button
 * In development:
      * [ ] Autologin and continue
+     * [ ] Make it pretty for mobile
   
 
  
