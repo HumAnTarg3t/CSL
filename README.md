@@ -53,7 +53,7 @@ The app uses [Spotify Api](https://developer.spotify.com/dashboard/) and [Genius
 `Node app` in the terminal.
 Open `http://localhost:8080/`.
 Press `Login` and `Update` once, after that it will update itself.
-
+If you change the song before it ends the timer will not be reset, you will need to manually update the site wjt the `update` button.
  
 ## Features
 * Deployed:
