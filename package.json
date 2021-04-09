@@ -1,6 +1,6 @@
 {
   "name": "Current-spotify-lyrics",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "Get your current playing song and find lyrics",
   "main": "app.js",
   "dependencies": {

@@ -63,9 +63,10 @@ Press `Login` and `Update` once, after that it will update itself.
      * [X] Autoscroll
      * [x] Adjust autoscroll speed
      * [X] Logout button
+     * [X] Make it somewhat pretty for mobile
 * In development:
      * [ ] Autologin and continue
-     * [ ] Make it pretty for mobile
+     
   
 
  
@@ -74,7 +75,8 @@ The app only uses [genius-lyrics-fetcher](https://github.com/zenje/genius-lyrics
  
  
 ## Status
-Project is: _ongoing_
+Project is: _never done_ but its up and _running_.
+
  
 ## Inspiration
 The urge for learning.
